@@ -19,8 +19,8 @@ public class CapgeminiRunner {
 	@AfterClass
 	 public static void writeExtentReport() {
 	  Reporter.loadXMLConfig(new File("config/extent-config.xml"));
-	  //Reporter.setSystemInfo("user", System.getProperty("user.name"));
-      //Reporter.setSystemInfo("os", "Mac OSX");
+	  Reporter.setSystemInfo("user", System.getProperty("user.name"));
+      Reporter.setSystemInfo("os", "Windows");
       //Reporter.setTestRunnerOutput("Test report for demo run");
 	 }
 }
