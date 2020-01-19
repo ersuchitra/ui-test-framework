@@ -1,0 +1,3 @@
+com\capgemini\cautomator\stepdefinition\steps\DemoStepdef.class
+com\capgemini\cautomator\runner\TestEnvironment.class
+com\capgemini\cautomator\runner\CapgeminiRunner.class
