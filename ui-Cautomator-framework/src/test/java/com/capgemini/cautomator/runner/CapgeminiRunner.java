@@ -9,9 +9,9 @@ import cucumber.api.junit.Cucumber;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/java/Features",
+@CucumberOptions(features = "src/test/java/Features/",
 glue= {"com.capgemini.cautomator.stepdefinition","com.capgemini.cautomator.runner"},
-tags= {"@login"},
+tags= {"@devserviceslogin"},
 plugin= { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }
 )
 

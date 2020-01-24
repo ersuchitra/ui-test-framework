@@ -26,7 +26,9 @@ public class TestEnvironment {
 	
  	@Before
 	public void openBrowser() {
- 		driver.get("http://www.flipkart.com");
+ 		//driver.get("http://www.flipkart.com");
+ 		driver.get("https://swtestweb.azurewebsites.net/home/default");
+ 		
 	 }
 	
 	@After
