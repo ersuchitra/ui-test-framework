@@ -9,10 +9,8 @@ import java.util.Properties;
 public class PropFileReader {
  
  private Properties properties;
- private final String propertyFilePath= "config/properties/global.properties";
- 
- 
- public PropFileReader(){
+  
+ public PropFileReader(String propertyFilePath){
  BufferedReader reader;
  try {
  reader = new BufferedReader(new FileReader(propertyFilePath));

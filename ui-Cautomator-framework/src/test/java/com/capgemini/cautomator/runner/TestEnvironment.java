@@ -16,8 +16,9 @@ import cucumber.api.java.Before;
 
 
 public class TestEnvironment {
+	String propFile="config/properties/global.properties";
+	PropFileReader propFileReader=new PropFileReader(propFile);
 	public static WebDriver driver;
-	PropFileReader propFileReader=new PropFileReader();
 
 
 	@Before
