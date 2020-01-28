@@ -51,4 +51,9 @@ public class PropFileReader {
 	 else throw new RuntimeException("environment not specified in the properties file.");
 	 }
  
+ public String getBrowser() {
+	 String url = properties.getProperty("browser");
+	 if(url != null) return url;
+	 else throw new RuntimeException("browser not specified in the properties file.");
+	 }
 }
