@@ -2,6 +2,7 @@ package com.capgemini.cautomator.stepdefinition.steps;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.capgemini.cautomator.runner.TestEnvironment;
 
@@ -19,26 +20,29 @@ public class DevServicesDemo {
 	private WebDriver driver = TestEnvironment.driver;
 	
 		  
-	@Given("^user is in homepage$") public void user_is_in_homepage() throws
+	@Given("^user in signin page$") public void user_in_signin_page() throws
 	  Throwable { 
-		Assert.assertEquals("https://swtestweb.azurewebsites.net/home/default", driver.getCurrentUrl());
-		Assert.assertEquals("Development Services Portal", driver.getTitle());
+		//Assert.assertEquals("https://edqy-test.login.em2.oraclecloud.com", driver.getCurrentUrl());
+		Assert.assertEquals("Sign In", driver.getTitle());
 		
 	  }
 	 
-    @When("^user navigates to Loginpage$")
-    public void user_navigates_to_Loginpage() {
-    	driver.findElement(By.linkText("Sign in")).click();
-    	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        //throw new PendingException();
-        
+    @When("^user in Loginpage$")
+    public void user_in_Loginpage() {
+    	String signInPage = driver.findElement(By.id("btnActive")).getText();
+    	System.out.println(signInPage);
+    	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	String expText = "Sign In";
+    	Assert.assertEquals(signInPage, expText);
     }
+        
+   
     
     @When("^user enters the credential$")
     public void user_enters_the_credential() {
-        driver.findElement(By.id("logonIdentifier")).sendKeys("suchitra.mohanty@capgemini.com");
-        driver.findElement(By.id("password")).sendKeys("Dec@2019");
-        driver.findElement(By.id("next")).click();
+        driver.findElement(By.id("userid")).sendKeys("MOHANTSU");
+        driver.findElement(By.id("password")).sendKeys("Monday20DK");
+        driver.findElement(By.id("btnActive")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //throw new PendingException();
     }
@@ -46,9 +50,9 @@ public class DevServicesDemo {
     @Then("^user able to login successfully$")
     public void user_able_to_login_successfully()  {
     	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        String actualURL ="https://swtestweb.azurewebsites.net/dashboard/home";
-    	String expURL=driver.getCurrentUrl();
-    	Assert.assertEquals(actualURL, expURL);
+        String actualTitle ="Welcome1";
+    	String expTitle=driver.getTitle();
+    	Assert.assertEquals(actualTitle, expTitle);
     	
 		/*
 		 * if(actualURL.equalsIgnoreCase(expURL)) {
@@ -61,8 +65,10 @@ public class DevServicesDemo {
 
     @Then("^user not able to login successfully$")
     public void user_not_able_to_login_successfully()  {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new PendingException();
+    	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    	String actualMsg = "You have a new home page!";
+    	String expMsg = driver.findElement(By.id("pt1:commandLink1")).getText();
+    	Assert.assertEquals(actualMsg, expMsg);
     }
 
     

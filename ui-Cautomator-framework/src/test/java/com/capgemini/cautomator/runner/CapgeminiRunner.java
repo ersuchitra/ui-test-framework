@@ -11,15 +11,18 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/java/Features/",
 glue= {"com.capgemini.cautomator.stepdefinition","com.capgemini.cautomator.runner"},
-tags= {"@devserviceslogin"},
+tags= {"@fablogin"},
 plugin= { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }
+
 )
 
 public class CapgeminiRunner {
-	@AfterClass
-	 public static void writeExtentReport() {
+	
+	  @AfterClass 
+	  public static void writeExtentReport() {
 	  Reporter.loadXMLConfig(new File("config/extent-config.xml"));
-	  Reporter.setSystemInfo("user", System.getProperty("user.name"));
-      Reporter.setSystemInfo("os", "Windows");
-     }
+	  //Reporter.setSystemInfo("user", System.getProperty("user.name"));
+	  //Reporter.setSystemInfo("os", "Windows"); 
+	  }
+	 
 }
